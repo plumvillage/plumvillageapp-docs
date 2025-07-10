@@ -1,0 +1,66 @@
+---
+title: Publishing builds
+---
+
+Note: The following instructions are meant to be run on `upstream main` directly.
+
+To release a new app version first we need to bump the app version. Note: if you need to only increment the build number, skip to [Bump build number](#bump-build-number).
+### Bump version
+* Run `yarn bump-version <major|minor|patch>`. This command will update the version and increment the build number for both iOS and Android and then push the changes to git as a new commit.
+
+### Bump build number
+Only use when you need to increment the build number only without changing the version number. If you have already run `bump-version`, then skip this step.
+* Run `yarn bump-build`.
+
+## iOS release
+
+import AnyDevice from './any-device.png';
+import DistributeApp from './distribute-app.png';
+import SelectMethodDistribution from './select-method-distribution.png';
+
+1. Ensure dependencies are installed: `yarn install`.
+2. Ensure pods are installed `yarn pod-install`. (**Note** - Do not use `pod install` command directly as that will activate the RN new framework — which we wish to be disabled for now)
+3. Select the correct scheme (Production or Beta).
+   <img width="286" alt="Screenshot 2023-12-17 at 11 52 46" src={AnyDevice} />
+
+4. **Product** -> **Archive** and then wait for it to build. Once the build is complete, a new `Archives` window should open up
+5. Select the archive then press **Distribute App**
+   <img width="300" alt="Screenshot 2023-12-17 at 12 04 31" src={DistributeApp} />
+
+6. Select method of distribution (commonly Testflight-Internal only OR in case of store distribution - TestFlight & App Store) and then press **Distribute**
+   <img width="300" alt="Screenshot 2023-12-17 at 12 09 48" src={SelectMethodDistribution} />
+
+7. Uploading may take some time depending on your internet speed, but once it is complete, the build should start showing up (after possibly a delay of a few minutes) in App Store Connect.
+
+8. Submit this new version for review from [App Store Connect](https://appstoreconnect.apple.com/).
+    1. Navigate to the build (under **Activity**). You may have to wait for it to process.
+    1. When it is processed, you are able to test it if you are in the test group (via TestFlight app + redeem code)
+    1. Then go to the **App Store** tab and add a new version, specify the version number matching the build and press **Create**.
+    1. Enter release notes
+    1. Select the Build
+    1. Typically you will leave everything else unchanged
+    1. Press **Save**
+    1. If everything looks OK, press **Submit for Review**
+    1. You may be asked "Does this app use the Advertising Identifier (IDFA)?". Answer: No
+    1. The new version will now show as **Waiting for Review**
+
+## Android release
+
+1. Ensure dependencies are installed: `yarn install`
+1. Ensure `my-release-key.keystore` and the associated `keystore.properties` are in place.
+1. Clean and generate release bundle:
+
+   `yarn android-build-release` - For convenience, this command will also open the build directory (in Finder by default) upon completion.
+
+   (change to `yarn android-build-beta` to generate a beta bundle - however, we haven't used the beta channel recently)
+1. Uploading and releasing a new version is very straightforward from the [Play Store Console](https://play.google.com/apps/publish/?account=7095911471568733321#AppListPlace).
+    1. Upload the Bundle from `android/app/build/outputs/bundle/release/app-release.aab`
+    1. Enter release notes
+    1. Press **Save**
+    1. Press **Review**
+    1. If everything looks OK, press **Start Rollout to Production**
+        - If there were significant changes, you'll certainly want to test the release before rolling out to production. In this case, you can upload it as an **Internal testing** release. Once you are satisfied it is ready for production, select **Promote release -> Production** from the page for that build.
+
+## Updating releases on GitHub
+
+For our records, add a [release on GitHub](https://github.com/plumvillage/plumvillage-app/releases). You can include release notes (specifying any differences for iOS / Android). Add the dates of release for iOS and Android once they become publicly available.
