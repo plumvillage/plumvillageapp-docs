@@ -10,8 +10,6 @@ The documentation covers code in many repositories, some of which are private. T
 
 The documentation is automatically deployed and available at: [https://plumvillage.github.io/plumvillageapp-docs/](https://plumvillage.github.io/plumvillageapp-docs/)
 
-Note: this is not yet enabled but we plan to soon.
-
 ## About
 
 The Plum Village App provides guided meditations, teachings, and mindfulness resources to practitioners worldwide. This documentation serves as a comprehensive guide for developers contributing to the project.
