@@ -84,9 +84,27 @@ Besides using `npx uri-scheme`, you can test Universal Links and App Links using
 - This is also the web experience for users without the app
 - Some browsers may also show an "open in app" option (UX differs by browser)
 
-**macOS Safari:**
+**macOS (Browser or Share & Tap):**
 - The app runs as a "built for iPad" app on macOS
-- Universal Links work similarly - direct opening in app when tapped from other apps, web fallback when typed in browser
+- Universal Links work similarly - direct opening in app when tapped from other apps (Notes, Mail, Signal, etc)
+- Web fallback when typed in browser, possibly with an "open in app" option depending on browser.
+
+#### Browser Examples on iOS / iPadOS
+
+Safari tends to highlight Universal Links but other browsers may not.
+
+**Safari on iPadOS:**
+![Safari showing universal link on iPadOS](./ipados-safari-universal-link.png)
+
+#### Browser Examples on macOS
+
+Safari and Chrome will highlight Universal Links, but other browsers may not.
+
+**Safari on macOS:**
+![Safari showing universal link on macOS](./macos-safari-universal-link.png)
+
+**Chrome on macOS:**
+![Chrome showing universal link on macOS](./macos-chrome-universal-link.png)
 
 ### Android Testing
 
@@ -101,6 +119,14 @@ Besides using `npx uri-scheme`, you can test Universal Links and App Links using
 - Navigate to a shared URL or manually type `https://web.plumvillage.app/extras/playlists`
 - Links typed directly into browser address bars will open in the browser
 - Some browsers may also show an "open in app" option (UX differs by browser)
+
+#### Browser Examples on Android
+
+Few browsers highlight App Links, but Firefox gives the option to open in the app.
+
+**Firefox on Android:**
+
+![Firefox showing app link on Android](./android-firefox-app-link.jpeg)
 
 ## URL Pattern Examples
 
