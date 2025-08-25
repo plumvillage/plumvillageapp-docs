@@ -87,6 +87,8 @@ yarn install
 
 Once setup is complete, you can run the app on simulators or physical devices.
 
+:::info The app is configured to point to local firestore and auth emulators - which require setting up and running the emulators via [plumvillage-firebase repo](https://github.com/plumvillage/plumvillage-firebase). If needed, this behavior can be disabled in `index.js` to point the app to Production data. 
+
 ### iOS
 
 ```bash
