@@ -87,7 +87,9 @@ yarn install
 
 Once setup is complete, you can run the app on simulators or physical devices.
 
-:::info The app is configured to point to production firebase services by default. If you wish to point the app to local firestore and auth emulators, follow [Pointing app to emulators](#pointing-app-to-emulators).
+:::info
+The app is configured to point to production firebase services by default. If you wish to point the app to local firestore and auth emulators, follow [Pointing app to emulators](#pointing-app-to-emulators).
+:::
 
 ### iOS
 
