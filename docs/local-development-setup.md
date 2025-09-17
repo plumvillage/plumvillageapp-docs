@@ -118,6 +118,19 @@ yarn android
 
 - In a new terminal, `yarn ios` or `yarn android`.
 
+#### Email login links
+
+Firebase emulator will output the login link on console. It looks like this:
+
+http://127.0.0.1:9099/emulator/action?mode=signIn&lang=en&oobCode=g4oS3WlKSt6A8csplzZ7pNvocd7Bnrg3tfomoELaMcj4pV0EJS-BV2&apiKey=fake-api-key&continueUrl=https%3A%2F%2Fweb.plumvillage.app%2Fhome
+
+Change it to:
+
+https://plum-village.firebaseapp.com/__/auth/links/action?mode=signIn&lang=en&oobCode=g4oS3WlKSt6A8csplzZ7pNvocd7Bnrg3tfomoELaMcj4pV0EJS-BV2&apiKey=fake-api-key&continueUrl=https%3A%2F%2Fweb.plumvillage.app%2Fhome
+
+Then it can be opened.
+
+
 ## Troubleshooting
 
 ### Common Issues
